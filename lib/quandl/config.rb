@@ -35,7 +35,7 @@ module Quandl
     private
 
     def read_config(file_name)
-      raw_config = File.read(Pathname.new(project_root).join('config', "#{file_name}.yml"))
+      raw_config = File.read(Pathname.new(project_root || '').join('config', "#{file_name}.yml"))
       erb_config = ERB.new(raw_config).result
       YAML.load(erb_config)[project_environment]
     end
