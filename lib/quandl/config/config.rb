@@ -38,11 +38,11 @@ module Quandl
     end
 
     def project_root
-      @_root ||= defined?(Rails) ? ::Rails.root : ProjectRoot.root
+      @_root ||= defined?(Rails.root) ? ::Rails.root : ProjectRoot.root
     end
 
     def project_environment
-      @_environment ||= defined?(Rails) ? ::Rails.env : (ENV['RAILS_ENV'] || ENV['RAKE_ENV'] || ENV['QUANDL_ENV'] || 'default')
+      @_environment ||= defined?(Rails.env) ? ::Rails.env : (ENV['RAILS_ENV'] || ENV['RAKE_ENV'] || ENV['QUANDL_ENV'] || 'default')
     end
   end
 end
